@@ -39,10 +39,10 @@ def simular_insercao_concorrente(thread_id):
             conexao.close()
 
 if __name__ == "__main__":
-    print("=== INICIANDO SIMULAÇÃO MULTITHREAD DE CONCORRÊNCIA ===")
+    print("----- INICIANDO SIMULAÇÃO MULTITHREAD DE CONCORRÊNCIA -----")
     
     # Dispara 5 threads concorrentes simulando acessos simultâneos ao SGBD
     with concurrent.futures.ThreadPoolExecutor(max_workers=5) as executor:
         executor.map(simular_insercao_concorrente, range(1, 6))
         
-    print("=== SIMULAÇÃO CONCLUÍDA ===")
+    print("----- SIMULAÇÃO CONCLUÍDA -----")

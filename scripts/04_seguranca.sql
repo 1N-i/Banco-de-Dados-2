@@ -1,5 +1,3 @@
-
--- Arquivo: 04_seguranca.sql
 -- Descrição: Configuração de roles, usuários e permissões de acesso
 
 -- Criação dos perfis de acesso (Roles)

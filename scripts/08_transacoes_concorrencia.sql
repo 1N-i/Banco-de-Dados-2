@@ -1,4 +1,4 @@
--- PARTE 1: BLOCOS DE TRANSAÇÕES ACID COM BEGIN, COMMIT E ROLLBACK
+-- BLOCOS DE TRANSAÇÕES ACID COM BEGIN, COMMIT E ROLLBACK
 
 -- Transação 1: Caso de Sucesso (COMMIT)
 -- Registra um novo uso de aplicativo e atualiza o progresso do hábito de forma atômica
@@ -27,7 +27,7 @@ VALUES (1, 1, CURRENT_DATE, 30);
 ROLLBACK;
 
 
--- PARTE 2: TESTE DE NÍVEIS DE ISOLAMENTO E BLOQUEIOS (CONCORRÊNCIA)
+-- TESTE DE NÍVEIS DE ISOLAMENTO E BLOQUEIOS (CONCORRÊNCIA)
 
 -- CENÁRIO A: READ COMMITTED (Garante que alterações não commitadas não ocorram)
 -- ABA 1 (Sessão A):

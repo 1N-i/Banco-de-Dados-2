@@ -1,0 +1,49 @@
+<mxfile host="app.diagrams.net">
+  <diagram name="Diagrama ER" id="3GUv15yYW7G0j0XgT5Dh">
+    <mxGraphModel dx="2009" dy="1126" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="-zYIuyUk_ZnKpNWUM1-C-1" parent="1" style="rounded=0;whiteSpace=wrap;html=1;align=left;verticalAlign=top;spacingTop=10;spacingLeft=12;fontSize=14;strokeWidth=2;fillColor=#fffdf5;strokeColor=#666666;" value="&lt;b&gt;Usuario&lt;/b&gt;&lt;br&gt;&lt;hr/&gt;&lt;b&gt;PK&lt;/b&gt;  id_usuario : SERIAL&lt;br&gt;nome : VARCHAR(100)&lt;br&gt;email : VARCHAR(100) UNIQUE&lt;br&gt;data_cadastro : DATE" vertex="1">
+          <mxGeometry height="168" width="320" x="600" y="60" as="geometry" />
+        </mxCell>
+        <mxCell id="-zYIuyUk_ZnKpNWUM1-C-2" parent="1" style="rounded=0;whiteSpace=wrap;html=1;align=left;verticalAlign=top;spacingTop=10;spacingLeft=12;fontSize=14;strokeWidth=2;fillColor=#fffdf5;strokeColor=#666666;" value="&lt;b&gt;HabitoDesejado&lt;/b&gt;&lt;br&gt;&lt;hr/&gt;&lt;b&gt;PK&lt;/b&gt;  id_habito : SERIAL&lt;br&gt;&lt;b&gt;FK&lt;/b&gt;  id_usuario : INT&lt;br&gt;titulo : VARCHAR(100)&lt;br&gt;descricao : TEXT&lt;br&gt;meta_diaria_minutos : INT" vertex="1">
+          <mxGeometry height="196" width="320" x="80" y="260" as="geometry" />
+        </mxCell>
+        <mxCell id="-zYIuyUk_ZnKpNWUM1-C-3" parent="1" style="rounded=0;whiteSpace=wrap;html=1;align=left;verticalAlign=top;spacingTop=10;spacingLeft=12;fontSize=14;strokeWidth=2;fillColor=#fffdf5;strokeColor=#666666;" value="&lt;b&gt;AppMonitorado&lt;/b&gt;&lt;br&gt;&lt;hr/&gt;&lt;b&gt;PK&lt;/b&gt;  id_app : SERIAL&lt;br&gt;&lt;b&gt;FK&lt;/b&gt;  id_usuario : INT&lt;br&gt;nome_app : VARCHAR(50)&lt;br&gt;categoria : VARCHAR(50)" vertex="1">
+          <mxGeometry height="168" width="320" x="1324" y="260" as="geometry" />
+        </mxCell>
+        <mxCell id="-zYIuyUk_ZnKpNWUM1-C-4" parent="1" style="rounded=0;whiteSpace=wrap;html=1;align=left;verticalAlign=top;spacingTop=10;spacingLeft=12;fontSize=14;strokeWidth=2;fillColor=#fffdf5;strokeColor=#666666;" value="&lt;b&gt;ProgressoHabito&lt;/b&gt;&lt;br&gt;&lt;hr/&gt;&lt;b&gt;PK&lt;/b&gt;  id_progresso : SERIAL&lt;br&gt;&lt;b&gt;FK&lt;/b&gt;  id_habito : INT&lt;br&gt;data_registro : DATE&lt;br&gt;concluido : BOOLEAN" vertex="1">
+          <mxGeometry height="168" width="320" x="80" y="650" as="geometry" />
+        </mxCell>
+        <mxCell id="-zYIuyUk_ZnKpNWUM1-C-5" parent="1" style="rounded=0;whiteSpace=wrap;html=1;align=left;verticalAlign=top;spacingTop=10;spacingLeft=12;fontSize=14;strokeWidth=2;fillColor=#fffdf5;strokeColor=#666666;" value="&lt;b&gt;RegistroUso&lt;/b&gt;&lt;br&gt;&lt;hr/&gt;&lt;b&gt;PK&lt;/b&gt;  id_registro : SERIAL&lt;br&gt;&lt;b&gt;FK&lt;/b&gt;  id_usuario : INT&lt;br&gt;&lt;b&gt;FK&lt;/b&gt;  id_app : INT&lt;br&gt;data_registro : DATE&lt;br&gt;tempo_uso_minutos : INT" vertex="1">
+          <mxGeometry height="196" width="320" x="1060" y="650" as="geometry" />
+        </mxCell>
+        <mxCell id="-zYIuyUk_ZnKpNWUM1-C-6" edge="1" parent="1" source="-zYIuyUk_ZnKpNWUM1-C-1" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;endArrow=ERmany;endFill=0;startArrow=ERone;startFill=0;strokeWidth=2;" target="-zYIuyUk_ZnKpNWUM1-C-2" value="1 : N">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="-zYIuyUk_ZnKpNWUM1-C-7" edge="1" parent="1" source="-zYIuyUk_ZnKpNWUM1-C-1" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;endArrow=ERmany;endFill=0;startArrow=ERone;startFill=0;strokeWidth=2;" target="-zYIuyUk_ZnKpNWUM1-C-3" value="1 : N">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="-zYIuyUk_ZnKpNWUM1-C-8" edge="1" parent="1" source="-zYIuyUk_ZnKpNWUM1-C-2" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;endArrow=ERmany;endFill=0;startArrow=ERone;startFill=0;strokeWidth=2;" target="-zYIuyUk_ZnKpNWUM1-C-4" value="1 : N">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="-zYIuyUk_ZnKpNWUM1-C-9" edge="1" parent="1" source="-zYIuyUk_ZnKpNWUM1-C-1" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;endArrow=ERmany;endFill=0;startArrow=ERone;startFill=0;strokeWidth=2;" target="-zYIuyUk_ZnKpNWUM1-C-5" value="1 : N">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="-zYIuyUk_ZnKpNWUM1-C-10" edge="1" parent="1" source="-zYIuyUk_ZnKpNWUM1-C-3" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;endArrow=ERmany;endFill=0;startArrow=ERone;startFill=0;strokeWidth=2;" target="-zYIuyUk_ZnKpNWUM1-C-5" value="1 : N">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="-zYIuyUk_ZnKpNWUM1-C-11" parent="1" style="text;html=1;align=center;verticalAlign=middle;fontSize=20;" value="&lt;b&gt;DIAGRAMA ER — Monitoramento de Hábitos e Uso de Aplicativos&lt;/b&gt;" vertex="1">
+          <mxGeometry height="30" width="800" x="400" y="10" as="geometry" />
+        </mxCell>
+        <mxCell id="-zYIuyUk_ZnKpNWUM1-C-12" parent="1" style="rounded=1;whiteSpace=wrap;html=1;align=center;fontSize=13;fillColor=#f5f5f5;strokeColor=#999999;dashed=1;" value="&lt;b&gt;Legenda&lt;/b&gt;&lt;br&gt;PK = Chave Primária &amp;nbsp;&amp;nbsp; FK = Chave Estrangeira &amp;nbsp;&amp;nbsp; 1:N = Um para Muitos" vertex="1">
+          <mxGeometry height="60" width="680" x="460" y="850" as="geometry" />
+        </mxCell>
+        <mxCell id="-zYIuyUk_ZnKpNWUM1-C-13" parent="1" style="rounded=1;whiteSpace=wrap;html=1;align=center;fontSize=13;fillColor=#f5f5f5;strokeColor=#999999;dashed=1;" value="&lt;b&gt;Integrantes:&lt;/b&gt;&lt;div&gt;&lt;b&gt;Ghabriel Villas Boas&lt;/b&gt;&lt;/div&gt;&lt;div&gt;&lt;b&gt;Giovani&amp;nbsp;&lt;/b&gt;&lt;/div&gt;&lt;div&gt;&lt;b&gt;Gustavo Oliveira&lt;/b&gt;&lt;/div&gt;&lt;div&gt;&lt;b&gt;Rubens Araujo&lt;/b&gt;&lt;/div&gt;" vertex="1">
+          <mxGeometry height="100" width="680" x="460" y="970" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>
