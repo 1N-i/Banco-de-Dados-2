@@ -17,21 +17,27 @@ DO $$
 BEGIN
     BEGIN
         INSERT INTO RegistroUso(id_usuario,id_app,data_registro,tempo_uso_minutos) VALUES(1,1,CURRENT_DATE,-1);
-        RAISE EXCEPTION 'FALHA: tempo negativo foi aceito';
+        RAISE EXCEPTION USING ERRCODE='ZX001', MESSAGE='FALHA: tempo negativo foi aceito';
     EXCEPTION WHEN SQLSTATE 'P0001' THEN
-        RAISE NOTICE 'Teste tempo negativo: excecao capturada (verificar mensagem acima se necessario)';
+        RAISE NOTICE 'OK: tempo negativo recusado pelo trigger';
+    WHEN SQLSTATE 'ZX001' THEN
+        RAISE EXCEPTION 'FALHA: operacao invalida foi aceita';
     END;
     BEGIN
         INSERT INTO HabitoDesejado(id_usuario,titulo,meta_diaria_minutos) VALUES(1,'Meta invalida',0);
-        RAISE EXCEPTION 'FALHA: meta zero foi aceita';
+        RAISE EXCEPTION USING ERRCODE='ZX001', MESSAGE='FALHA: meta zero foi aceita';
     EXCEPTION WHEN SQLSTATE 'P0001' THEN
-        RAISE NOTICE 'Teste meta zero: excecao capturada';
+        RAISE NOTICE 'OK: meta zero recusada pelo trigger';
+    WHEN SQLSTATE 'ZX001' THEN
+        RAISE EXCEPTION 'FALHA: operacao invalida foi aceita';
     END;
     BEGIN
         CALL sp_registrar_uso(2,1,CURRENT_DATE,10);
-        RAISE EXCEPTION 'FALHA: aplicativo de outro usuario foi aceito';
+        RAISE EXCEPTION USING ERRCODE='ZX001', MESSAGE='FALHA: aplicativo de outro usuario foi aceito';
     EXCEPTION WHEN SQLSTATE 'P0001' THEN
-        RAISE NOTICE 'Teste vinculo usuario/app: excecao capturada';
+        RAISE NOTICE 'OK: vinculo usuario/aplicativo validado';
+    WHEN SQLSTATE 'ZX001' THEN
+        RAISE EXCEPTION 'FALHA: operacao invalida foi aceita';
     END;
 END;
 $$;

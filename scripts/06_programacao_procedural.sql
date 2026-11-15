@@ -86,7 +86,7 @@ FOR EACH ROW EXECUTE FUNCTION tg_validar_tempo();
 CREATE OR REPLACE FUNCTION tg_alertar_limite() RETURNS TRIGGER LANGUAGE plpgsql AS $$
 DECLARE v_total BIGINT;
 BEGIN
-    v_total := fn_tempo_total_usuario(NEW.id_usuario, NEW.data_registro);
+    SELECT COALESCE(SUM(tempo_uso_minutos),0)::BIGINT INTO v_total FROM RegistroUso WHERE id_usuario=NEW.id_usuario AND data_registro=NEW.data_registro;
     IF v_total > 120 THEN
         RAISE NOTICE 'ALERTA: usuario % acumulou % minutos em % (limite: 120)',
             NEW.id_usuario, v_total, NEW.data_registro;
