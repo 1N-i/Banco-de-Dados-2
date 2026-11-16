@@ -2,7 +2,7 @@ import concurrent.futures
 from datetime import date
 import psycopg2
 
-# Configuração de conexão utilizando as credenciais da aplicação (role_app)[cite: 8]
+# Configuração de conexão utilizando as credenciais da aplicação (role_app)
 DB_CONFIG = {
     "dbname": "banco_dados_2",
     "user": "user_backend",
